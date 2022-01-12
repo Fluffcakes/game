@@ -7,15 +7,15 @@ import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Background{
+public class Dice{
 	
 	//add location attributes
 	private int x, y; 
 	private Image img; 	
 	private AffineTransform tx;
 
-	public Background(int x, int y) {
-		img = getImage("/imgs/background.png");
+	public Dice(int x, int y) {
+		img = getImage("/imgs/dice1.png");
 		this.x = x;
 		this.y = y;
 		tx = AffineTransform.getTranslateInstance(x, y);
@@ -41,7 +41,7 @@ public class Background{
 	// updates picture variable location
 	private void update() {
 		tx.setToTranslation(x, y);
-		tx.setToScale(2, 2); // dimensions is 626x313
+		tx.setToScale(1, 1); 
 	}
 
 	
