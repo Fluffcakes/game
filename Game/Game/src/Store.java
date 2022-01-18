@@ -2,54 +2,23 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Dice{
+public class Store{
 	
 	//add location attributes
 	private int x, y; 
 	private Image img; 	
 	private AffineTransform tx;
 
-	public Dice(int x, int y, int random) {
-		if (random == 1) {
-			img = getImage("/imgs/dice1.png");
-		} else if (random == 2) {
-			img = getImage("/imgs/dice2.png");
-		} else if (random == 3) {
-			img = getImage("/imgs/dice3.png");
-		} else if (random == 4) {
-			img = getImage("/imgs/dice4.png");
-		} else if (random == 5) {
-			img = getImage("/imgs/dice5.png");
-		} else {
-			img = getImage("/imgs/dice6.png");
-		}
+	public Store(int x, int y) {
+		img = getImage("/imgs/store.png");
 		this.x = x;
 		this.y = y;
 		tx = AffineTransform.getTranslateInstance(x, y);
-		init(x, y);
-	}
-	
-	public int value() {
-		int value = 0;
-		if (img == getImage("/imgs/dice1.png")) {
-			value = 1;
-		} else if (img == getImage("/imgs/dice2.png")) {
-			value = 2;
-		} else if (img == getImage("/imgs/dice3.png")) {
-			value = 3;
-		} else if (img == getImage("/imgs/dice4.png")) {
-			value = 4;
-		} else if (img == getImage("/imgs/dice5.png")) {
-			value = 5;
-		} else if (img == getImage("/imgs/dice6.png")) {
-			value = 6;
-		}
-		return value;
+		init(x, y); 				//initialize the location of the image
+									//use your variables
 	}
 	
 	public void changePicture(String newFileName) {
@@ -70,7 +39,7 @@ public class Dice{
 	// updates picture variable location
 	private void update() {
 		tx.setToTranslation(x, y);
-		tx.setToScale(1, 1); 
+		tx.setToScale(2, 2); // dimensions is 626x313
 	}
 
 	

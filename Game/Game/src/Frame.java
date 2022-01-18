@@ -25,17 +25,19 @@ import javax.swing.Timer;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	Background b = new Background(0,0);
+	Dice d = new Dice(100, 250, (int)(Math.random() * 5 + 1));
+	Store s = new Store(1200, 100);
 	int score = 0;
-	private Image img; 	
+	private Image img;
 	
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		b.paint(g);
+		s.paint(g);
+		d.paint(g);
 		Font fontScore2 = new Font("Helvetica", Font.BOLD, 30);
 		g.setFont(fontScore2);
 		g.drawString("Score: " + score, 550, 100);
-		
-
 	}
 	
 	public static void main(String[] arg) {
@@ -43,14 +45,14 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	}
 	
 	public Frame() {
-		JFrame f = new JFrame("Duck Hunt");
+		JFrame f = new JFrame("Game");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(new Dimension(1252, 626));
 		f.setBackground(Color.blue);
 		f.add(this);
 		f.setResizable(false);
 		BufferedImage cursorImg;		
-		try {
+		/*try {
 			cursorImg =  ImageIO.read(new File("cursor.png"));
 			Cursor blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(
 				    cursorImg, new Point(0, 0), "blank cursor");
@@ -58,7 +60,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 	
+		} 	*/
 		f.setLayout(new GridLayout(1,2));
 		f.addMouseListener(this);
 		f.addKeyListener(this);
@@ -71,9 +73,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
-		//traverse entire array of objects and check for collision
-		
+		d = new Dice(100, 250, (int)(Math.random() * 5 + 1));
 	}
 
 	@Override
@@ -91,7 +91,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-	
 	}
 
 	@Override
