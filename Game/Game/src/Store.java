@@ -39,7 +39,7 @@ public class Store{
 	// updates picture variable location
 	private void update() {
 		tx.setToTranslation(x, y);
-		tx.setToScale(2, 2); // dimensions is 626x313
+		tx.setToScale(1, 1); // dimensions is 626x313
 	}
 
 	
@@ -50,7 +50,7 @@ public class Store{
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
-			URL imageURL = Background.class.getResource(path);
+			URL imageURL = Store.class.getResource(path);
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();

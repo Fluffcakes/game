@@ -33,8 +33,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		b.paint(g);
-		s.paint(g);
 		d.paint(g);
+		s.paint(g);
 		Font fontScore2 = new Font("Helvetica", Font.BOLD, 30);
 		g.setFont(fontScore2);
 		g.drawString("Score: " + score, 550, 100);
