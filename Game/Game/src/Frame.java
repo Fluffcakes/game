@@ -25,16 +25,18 @@ import javax.swing.Timer;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	Background b = new Background(0,0);
-	Dice d = new Dice(100, 250, (int)(Math.random() * 5 + 1));
+	Dice d = new Dice(100, 250, (int)(Math.random() * 6 + 1));
 	Store s = new Store(1200, 100);
 	int score = 0;
 	private Image img;
+	Horseman h = new Horseman(0, 400);
 	
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		b.paint(g);
 		d.paint(g);
 		s.paint(g);
+		h.paint(g);
 		Font fontScore2 = new Font("Helvetica", Font.BOLD, 30);
 		g.setFont(fontScore2);
 		g.drawString("Score: " + score, 550, 100);
@@ -48,7 +50,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		JFrame f = new JFrame("Game");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(new Dimension(1252, 626));
-		f.setBackground(Color.blue);
 		f.add(this);
 		f.setResizable(false);
 		BufferedImage cursorImg;		
@@ -73,7 +74,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		d = new Dice(100, 250, (int)(Math.random() * 5 + 1));
+		d = new Dice(100, 250, (int)(Math.random() * 6 + 1));
 	}
 
 	@Override

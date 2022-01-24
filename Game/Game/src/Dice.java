@@ -25,8 +25,10 @@ public class Dice{
 			img = getImage("/imgs/dice4.png");
 		} else if (random == 5) {
 			img = getImage("/imgs/dice5.png");
-		} else {
+		} else if (random == 6) {
 			img = getImage("/imgs/dice6.png");
+		} else {
+			img = null;
 		}
 		this.x = x;
 		this.y = y;
@@ -79,6 +81,7 @@ public class Dice{
 	}
 
 	private Image getImage(String path) {
+		System.out.println(x + " " + y);
 		Image tempImage = null;
 		try {
 			URL imageURL = Dice.class.getResource(path);
