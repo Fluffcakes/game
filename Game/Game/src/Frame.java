@@ -26,7 +26,7 @@ import javax.swing.Timer;
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	Background b = new Background(0,0);
 	Dice d = new Dice(100, 250, (int)(Math.random() * 6 + 1));
-	Store s = new Store(1200, 100);
+	Store s = new Store(500, 100); //x should be 1200
 	int score = 0;
 	private Image img;
 	Horseman h = new Horseman(0, 400);

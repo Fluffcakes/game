@@ -95,7 +95,6 @@ public class Horseman{
 	}
 
 	private Image getImage(String path) {
-		System.out.println(x + " " + y);
 		Image tempImage = null;
 		try {
 			URL imageURL = Horseman.class.getResource(path);
