@@ -26,42 +26,41 @@ import javax.swing.Timer;
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	Background b = new Background(0,0);
 	Dice d = new Dice(100, 250, (int)(Math.random() * 6 + 1));
-	Store s = new Store(500, 100); //x should be 1200
+	Store s = new Store(1100, 100); 
 	int score = 0;
 	private Image img;
-	Horseman h = new Horseman(0, 400);
 	
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		b.paint(g);
 		d.paint(g);
 		s.paint(g);
-		h.paint(g);
 		Font fontScore2 = new Font("Helvetica", Font.BOLD, 30);
 		g.setFont(fontScore2);
 		g.drawString("Score: " + score, 550, 100);
-	}
+	}	
 	
 	public static void main(String[] arg) {
 		Frame f = new Frame();
 	}
 	
 	public Frame() {
-		JFrame f = new JFrame("Game");
+		JFrame f = new JFrame("Duck Hunt");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(new Dimension(1252, 626));
+		f.setBackground(Color.blue);
 		f.add(this);
 		f.setResizable(false);
 		BufferedImage cursorImg;		
-		/*try {
-			cursorImg =  ImageIO.read(new File("cursor.png"));
+		try {
+			cursorImg =  ImageIO.read(new File("imgs/cursor.png"));
 			Cursor blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(
 				    cursorImg, new Point(0, 0), "blank cursor");
 			f.getContentPane().setCursor(blankCursor);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 	*/
+		} 	
 		f.setLayout(new GridLayout(1,2));
 		f.addMouseListener(this);
 		f.addKeyListener(this);
@@ -74,7 +73,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		
 		d = new Dice(100, 250, (int)(Math.random() * 6 + 1));
+		score += Dice.value();
 	}
 
 	@Override
@@ -92,6 +93,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+	
 	}
 
 	@Override

@@ -11,7 +11,8 @@ public class Dice{
 	
 	//add location attributes
 	private int x, y; 
-	private Image img; 	
+	private int side;
+	private static Image img; 	
 	private AffineTransform tx;
 
 	public Dice(int x, int y, int random) {
@@ -34,9 +35,10 @@ public class Dice{
 		this.y = y;
 		tx = AffineTransform.getTranslateInstance(x, y);
 		init(x, y);
+		side = random;
 	}
 	
-	public int value() {
+	public static int value() {
 		int value = 0;
 		if (img == getImage("/imgs/dice1.png")) {
 			value = 1;
@@ -67,6 +69,21 @@ public class Dice{
 
 		//call update to update the actual picture location
 		update();
+		if (side == 1) {
+			changePicture("/imgs/dice1.png");
+		} else if (side == 2) {
+			changePicture("/imgs/dice2.png");
+		} else if (side == 3) {
+			changePicture("/imgs/dice3.png");
+		} else if (side == 4) {
+			changePicture("/imgs/dice4.png");
+		} else if (side == 5) {
+			changePicture("/imgs/dice5.png");
+		} else if (side == 6) {
+			changePicture("/imgs/dice6.png");
+		} else {
+			img = null;
+		}
 	}
 	
 	// updates picture variable location
@@ -80,8 +97,7 @@ public class Dice{
 		tx.setToTranslation(a, b);
 	}
 
-	private Image getImage(String path) {
-		System.out.println(x + " " + y);
+	private static Image getImage(String path) {
 		Image tempImage = null;
 		try {
 			URL imageURL = Dice.class.getResource(path);
