@@ -10,4 +10,4 @@ The "goal" of the game is to get 1000 points, but the real goal is to reach for 
 
 If given more time on this project, I would add store upgrades, dice value upgrades, multiplier die, and multiplier for dice matches such as one pair, two pair, etc.
 
-also, I'm pushing, but I'm don't think github is updating
+also, I'm pushing, but I'm don't think github is updating (the error is rejected - non fast forwarding)
